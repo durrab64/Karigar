@@ -32,47 +32,49 @@ const Sidebar = () => {
     const links = getLinks(user.role);
 
     return (
-        <aside className="w-64 bg-white border-r border-slate-200 h-screen fixed left-0 top-0 flex flex-col shadow-sm">
-            <div className="h-20 flex items-center px-6 border-b border-slate-100">
+        <aside className="w-72 bg-white border-r border-slate-200 h-screen fixed left-0 top-0 flex flex-col shadow-xl z-20">
+            <div className="h-24 flex items-center px-8 border-b border-slate-100">
                 <div className="flex items-center gap-3 text-blue-700">
-                    <div className="bg-blue-600 text-white p-1.5 rounded-lg">
-                        <Hammer size={20} fill="white" />
+                    <div className="bg-blue-600 text-white p-2 rounded-lg shadow-lg shadow-blue-600/20">
+                        <Hammer size={24} fill="white" />
                     </div>
-                    <h1 className="text-2xl font-bold tracking-tight font-display">Karigar</h1>
+                    <h1 className="text-2xl font-bold tracking-tight font-display text-slate-900">Karigar</h1>
                 </div>
             </div>
 
-            <nav className="flex-1 p-4 space-y-1">
+            <nav className="flex-1 p-6 space-y-2 overflow-y-auto">
                 {links.map((link) => (
                     <NavLink
                         key={link.to}
                         to={link.to}
-                        end={link.to !== '/customer'} // Exact match for customer root if needed, but usually explore is root
+                        end={link.to !== '/customer'}
                         className={({ isActive }) =>
-                            `flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors font-medium text-sm
+                            `flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium text-base
               ${isActive
-                                ? 'bg-indigo-50 text-indigo-700'
-                                : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                                ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30 translate-x-1'
+                                : 'text-slate-500 hover:bg-slate-50 hover:text-blue-600 hover:translate-x-1'
                             }`
                         }
                     >
-                        <link.icon className="w-5 h-5" />
+                        <link.icon className={`w-5 h-5 ${({ isActive }) => isActive ? 'text-white' : 'text-current'}`} />
                         {link.label}
                     </NavLink>
                 ))}
             </nav>
 
-            <div className="p-4 border-t border-slate-100">
-                <div className="flex items-center gap-3 px-3 py-3 mb-2">
-                    <img src={user.avatar} alt={user.name} className="w-8 h-8 rounded-full bg-slate-200" />
+            <div className="p-6 border-t border-slate-100 bg-slate-50/50">
+                <div className="flex items-center gap-4 p-3 bg-white border border-slate-200 rounded-xl shadow-sm mb-4">
+                    <img src={user.avatar} alt={user.name} className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm" />
                     <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-slate-900 truncate">{user.name}</p>
-                        <p className="text-xs text-slate-500 truncate capitalize">{user.role}</p>
+                        <p className="text-sm font-bold text-slate-900 truncate">{user.name}</p>
+                        <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600 capitalize border border-slate-200">
+                            {user.role}
+                        </span>
                     </div>
                 </div>
                 <button
                     onClick={logout}
-                    className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors text-left"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors border border-transparent hover:border-red-100"
                 >
                     <LogOut className="w-4 h-4" />
                     Sign Out

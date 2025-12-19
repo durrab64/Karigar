@@ -1,26 +1,22 @@
 import { useNavigate } from 'react-router-dom';
-import { Search, Shield, Zap, Star, ArrowRight, Hammer } from 'lucide-react';
+import { Search, Shield, Zap, Star, ArrowRight } from 'lucide-react';
+import GuestNavbar from '../components/layout/GuestNavbar';
+import Footer from '../components/layout/Footer';
+import SEO from '../components/SEO/SEO';
 
 const LandingPage = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="landing-page animate-fade-in">
+        <div className="landing-page dark animate-fade-in">
+            <SEO
+                title="Home"
+                description="Find trusted local service providers like plumbers, electricians, and carpenters in your area. Fast, secure, and reliable home services on demand."
+                keywords="local services, home services, plumber, electrician, carpenter, handyman, home repair, karigar"
+                url="/"
+            />
             {/* Navbar */}
-            <nav className="landing-nav">
-                <div className="container nav-content">
-                    <div className="logo-container">
-                        <div className="bg-blue-600 text-white p-2 rounded-lg">
-                            <Hammer size={24} fill="white" />
-                        </div>
-                        <span>Karigar</span>
-                    </div>
-                    <div className="nav-actions">
-                        <button onClick={() => navigate('/login')} className="btn btn-ghost">Log In</button>
-                        <button onClick={() => navigate('/login')} className="btn btn-primary">Get Started</button>
-                    </div>
-                </div>
-            </nav>
+            <GuestNavbar />
 
             {/* Hero Section */}
             <header className="hero-section">
@@ -33,7 +29,7 @@ const LandingPage = () => {
                         Connect with top-rated plumbers, electricians, and home service professionals in your neighborhood. Fast, secure, and reliable.
                     </p>
                     <div className="hero-actions">
-                        <button onClick={() => navigate('/login')} className="btn btn-primary btn-lg">
+                        <button onClick={() => navigate('/services')} className="btn btn-primary btn-lg">
                             Find a Professional <ArrowRight size={20} />
                         </button>
                         <button onClick={() => navigate('/login')} className="btn btn-secondary btn-lg">
@@ -103,11 +99,7 @@ const LandingPage = () => {
             </section>
 
             {/* Footer */}
-            <footer className="landing-footer">
-                <div className="container">
-                    <p>&copy; 2025 Karigar Inc. All rights reserved.</p>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 };

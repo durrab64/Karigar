@@ -13,7 +13,7 @@ export const USERS = [
     name: 'Rahul Sharma',
     email: 'rahul@example.com',
     role: 'customer',
-    avatar: 'https://i.pravatar.cc/150?u=u1',
+    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=faces',
     bookings: ['b1', 'b3']
   },
   {
@@ -21,7 +21,7 @@ export const USERS = [
     name: 'Priya Patel',
     email: 'priya@example.com',
     role: 'customer',
-    avatar: 'https://i.pravatar.cc/150?u=u2',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces',
     bookings: ['b2']
   },
   {
@@ -32,13 +32,13 @@ export const USERS = [
     verified: true,
     rating: 4.8,
     reviews: 124,
-    avatar: 'https://i.pravatar.cc/150?u=p1',
+    avatar: 'https://images.unsplash.com/photo-1581578731117-104f8a3d46a8?w=300&h=300&fit=crop&crop=faces',
     serviceCategory: 'Plumbing',
-    bio: 'Expert plumber with 10 years of experience in leak repairs and installations.',
+    bio: 'Expert plumber with 10 years of experience. Specialized in modern bathroom fittings and emergency leak repairs.',
     hourlyRate: 500,
     services: [
-        { id: 's1', name: 'Tap Repair', price: 200, duration: '30m' },
-        { id: 's2', name: 'Pipe Fitting', price: 1000, duration: '2h' }
+      { id: 's1', name: 'Tap Repair', price: 200, duration: '30m' },
+      { id: 's2', name: 'Pipe Fitting', price: 1000, duration: '2h' }
     ]
   },
   {
@@ -49,13 +49,13 @@ export const USERS = [
     verified: true,
     rating: 4.9,
     reviews: 56,
-    avatar: 'https://i.pravatar.cc/150?u=p2',
+    avatar: 'https://images.unsplash.com/photo-1556910103-1c02745a30bf?w=300&h=300&fit=crop&crop=faces',
     serviceCategory: 'Cleaning',
-    bio: 'Professional home cleaning services. Deep cleaning specialists.',
+    bio: 'Professional home cleaning services. We use eco-friendly products and ensure your home sparkles.',
     hourlyRate: 300,
     services: [
-        { id: 's3', name: 'Full Home Deep Clean', price: 2500, duration: '4h' },
-        { id: 's4', name: 'Oven Cleaning', price: 500, duration: '1h' }
+      { id: 's3', name: 'Full Home Deep Clean', price: 2500, duration: '4h' },
+      { id: 's4', name: 'Kitchen Degreasing', price: 800, duration: '1.5h' }
     ]
   },
   {
@@ -102,3 +102,28 @@ export const BOOKINGS = [
     review: null
   }
 ];
+
+export const REVIEWS = [
+  {
+    id: 'r1',
+    bookingId: 'b1',
+    customerId: 'u1',
+    providerId: 'p1',
+    rating: 5,
+    comment: 'Quick and clean job!',
+    date: '2023-11-16'
+  }
+];
+
+export const DISPUTES = [
+  {
+    id: 'd1',
+    bookingId: 'b2',
+    customerId: 'u2',
+    providerId: 'p2',
+    reason: 'Service not completed as promised',
+    status: 'pending',
+    created: '2023-12-21'
+  }
+];
+
